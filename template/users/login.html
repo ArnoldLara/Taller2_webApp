@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content%}
+<div class="col">
+    <h2>Login</h2>
+
+    {#Formulario#}
+    {#La info la va a enviar por el metodo post y la va a enviar por la misma URL#}
+    <form method="post">
+      {#Esto se debe colocar en todos los formularios para evitar ataques, obligatorio#}
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" name="username" value="form-control">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" value="form-control">
+      </div>
+      {#Se estan usanod clases de bootstrap para que se agilice el maquetado#}
+      <button type="submit" name="btn btn-primary">Login</button>
+
+    </form>
+
+</div>
+{% endblock %}
