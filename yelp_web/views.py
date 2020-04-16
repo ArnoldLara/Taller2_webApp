@@ -9,8 +9,17 @@ from django.contrib.auth import logout
 from django.contrib.auth import login
 from django.contrib import messages
 
+from Bussiness.models import Bussiness
+
+
 def index(request):
-    return render(request,'index.html')
+    bussiness = Bussiness.objects.all().order_by('-stars')
+
+    return render(request,'index.html',{
+        'message':'Listado de lugares',
+        'title':'Lugares',
+        'bussiness': bussiness,
+    })
 
 
 def login_view(request):
