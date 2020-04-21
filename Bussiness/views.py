@@ -8,10 +8,10 @@ from .models import Bussiness
 
 class BussinessSearchListView(ListView):
     template_name = 'Bussiness/search.html'
-
+    paginate_by = 8
     def get_queryset(self):
         #print(Bussiness.objects.filter(city__icontains=self.query()))
-        return Bussiness.objects.filter(city__icontains=self.query())
+        return Bussiness.objects.filter(city__icontains=self.query()).order_by('-stars')
 
     def query(self):
         return self.request.GET.get('q')
@@ -19,5 +19,5 @@ class BussinessSearchListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['query'] = self.query()
-        print(context)
+        #print(context)
         return context
