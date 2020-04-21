@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="col">
+
+  {% include 'Bussiness/snippets/search.html' with query=query %}
+
+  <h2>Resultado de lugares para tomar cafe</h2>
+
+  <hr>
+  <p>Resultados para: {{ query }}</p>
+
+  <table class="table">
+  <tr class="thead-dark">
+    <th>Name</th>
+    <th>City</th>
+    <th>Stars</th>
+    <th>Categories</th>
+  </tr>
+  {%for bussiness in bussiness_list %}
+       <tr>
+         <td>{{bussiness.name}}</td>
+         <td>{{bussiness.city}}</td>
+         <td>{{bussiness.stars}}</td>
+         <td>{{bussiness.categories}}</td>
+       </tr>
+  {%endfor%}
+
+  </table>
+
+
+</div>
+
+{% endblock %}

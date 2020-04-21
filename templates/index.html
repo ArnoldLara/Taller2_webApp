@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+<div class="col">
+       <!-- Este es un comentario de HTML -->
+       {#Este es un comentario de DJANGO, mejor usar este#}
+       <h1>{{ message }}</h1>
+       {% include 'Bussiness/snippets/search.html'%}
+       
+
+     </div>
+
+{% endblock %}
