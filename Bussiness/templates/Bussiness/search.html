@@ -17,6 +17,7 @@
     <th>City</th>
     <th>Stars</th>
     <th>Categories</th>
+    <th>Rate recommendation</th>
   </tr>
   {%for bussiness in bussiness_list %}
        <tr>
@@ -24,6 +25,7 @@
          <td>{{bussiness.city}}</td>
          <td>{{bussiness.stars}}</td>
          <td>{{bussiness.categories}}</td>
+         <td>{% include 'Bussiness/snippets/stars.html' %}</td>
        </tr>
   {%endfor%}
 
