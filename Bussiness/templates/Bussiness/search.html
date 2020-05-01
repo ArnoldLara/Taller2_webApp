@@ -1,6 +1,8 @@
+
 {% extends 'base.html' %}
 
 {% block content %}
+
 
 <div class="col">
 
@@ -25,7 +27,12 @@
          <td>{{bussiness.city}}</td>
          <td>{{bussiness.stars}}</td>
          <td>{{bussiness.categories}}</td>
-         <td>{% include 'Bussiness/snippets/stars.html' %}</td>
+         <td style="width:200px">
+
+           {% include 'Bussiness/snippets/stars.html' with star_name=bussiness.name %}
+
+
+         </td>
        </tr>
   {%endfor%}
 
