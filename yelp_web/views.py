@@ -38,7 +38,7 @@ def login_view(request):
             login(request,user)
             messages.success(request,'Bienvenido {}'.format(user.username))
             #Redirige a la pagina de home
-            return redirect('index')
+            return redirect('review')
 
         else:
             messages.success(request,'Usuario o contraseñas no validos')

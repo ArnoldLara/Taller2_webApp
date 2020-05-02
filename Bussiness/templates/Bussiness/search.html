@@ -8,35 +8,40 @@
 
   {% include 'Bussiness/snippets/search.html' with query=query %}
 
-  <h2>Resultado de lugares para tomar cafe</h2>
+
 
   <hr>
   <p>Resultados para: {{ query }}</p>
+  {% if user.is_authenticated %}
+    <h2>Recomendacion de lugares para tomar cafe</h2>
+  {% else %}
+    <h2>Resultado de lugares para tomar cafe</h2>
+    <table class="table">
+    <tr class="thead-dark">
+      <th>Name</th>
+      <th>City</th>
+      <th>Stars</th>
+      <th>Categories</th>
+      <th>Rate recommendation</th>
+    </tr>
+    {%for bussiness in bussiness_list %}
+         <tr>
+           <td>{{bussiness.name}}</td>
+           <td>{{bussiness.city}}</td>
+           <td>{{bussiness.stars}}</td>
+           <td>{{bussiness.categories}}</td>
+           <td style="width:200px">
 
-  <table class="table">
-  <tr class="thead-dark">
-    <th>Name</th>
-    <th>City</th>
-    <th>Stars</th>
-    <th>Categories</th>
-    <th>Rate recommendation</th>
-  </tr>
-  {%for bussiness in bussiness_list %}
-       <tr>
-         <td>{{bussiness.name}}</td>
-         <td>{{bussiness.city}}</td>
-         <td>{{bussiness.stars}}</td>
-         <td>{{bussiness.categories}}</td>
-         <td style="width:200px">
-
-           {% include 'Bussiness/snippets/stars.html' with star_name=bussiness.name %}
+             {% include 'Bussiness/snippets/stars.html' with star_name=bussiness.name %}
 
 
-         </td>
-       </tr>
-  {%endfor%}
+           </td>
+         </tr>
+    {%endfor%}
 
-  </table>
+    </table>
+  {% endif %}
+
 
 
 </div>

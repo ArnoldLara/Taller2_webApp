@@ -11,4 +11,5 @@ urlpatterns = [
     path('usuarios/logout',views.logout_view,name='logout'),
     path('usuarios/registro',views.registro,name='registro'),
     path('bussiness/', include('Bussiness.urls')),
+    path('review/', include('reviews.urls')),
 ]

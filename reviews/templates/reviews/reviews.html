@@ -1,0 +1,44 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+<div class="col">
+
+  {% include 'Bussiness/snippets/search.html'%}
+
+  <h2>Historico de calificaciones</h2>
+
+  <hr>
+
+  {% if user.is_authenticated %}
+    <table class="table">
+    <tr class="thead-dark">
+      <th>Name</th>
+      <th>Bussiness name</th>
+      <th>City</th>
+      <th>Stars</th>
+      <th>Date</th>
+    </tr>
+    {%for review in reviews_list %}
+         <tr>
+           <td>{{review.name}}</td>
+           <td>{{review.bussiness_name}}</td>
+           <td>{{review.city}}</td>
+           <td>{{review.stars}}</td>
+           <td>{{review.date}}</td>
+
+         </tr>
+    {%endfor%}
+
+    </table>
+
+  {% endif %}
+
+
+
+</div>
+
+{% endblock %}
