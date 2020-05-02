@@ -10,7 +10,7 @@ for x in usuarios:
     user = User.objects.create_user(x[1], 'user@andes.com', 'password')
     # Update fields and then save again
     user.first_name = x[1]
-    user.last_name = x[1]
+    user.last_name = x[0]
     user.save()
     print(x[1])
 
