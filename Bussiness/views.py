@@ -8,7 +8,7 @@ from .models import Bussiness
 
 class BussinessSearchListView(ListView):
     template_name = 'Bussiness/search.html'
-    paginate_by = 8
+    paginate_by = 10
     def get_queryset(self):
         #print(Bussiness.objects.filter(city__icontains=self.query()))
         return Bussiness.objects.filter(city__icontains=self.query()).order_by('-stars')
