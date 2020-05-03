@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_crontab',
 ]
 
 MIDDLEWARE = [
@@ -122,6 +123,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+CRONJOBS = [
+    ('*/1 * * * *', 'yelp_web.cron.my_scheduled_job', '>> /home/arnoldlara/SR/Talleres/Taller2/yelp_web/scheduled_job.log')
+]
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR,'static'),
