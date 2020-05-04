@@ -14,6 +14,32 @@
   <p>Resultados para: {{ query }}</p>
   {% if user.is_authenticated %}
     <h2>Recomendacion de lugares para tomar cafe</h2>
+    <table class="table">
+    <tr class="thead-dark">
+      <th>Username</th>
+      <th>Bussiness Name</th>
+      <th>City</th>
+      <th>Address</th>
+      <th>Rate recommendation</th>
+    </tr>
+    {%for recommendation in recommendation_list %}
+         <tr>
+           <td>{{recommendation.user_name}}</td>
+           <td>{{recommendation.bussines_name}}</td>
+           <td>{{recommendation.city}}</td>
+           <td>{{recommendation.address}}</td>
+           <td style="width:200px">
+
+             {% include 'Bussiness/snippets/stars.html' with star_name=bussiness.name %}
+
+
+           </td>
+         </tr>
+    {%endfor%}
+
+    </table>
+
+
   {% else %}
     <h2>Resultado de lugares para tomar cafe</h2>
     <table class="table">
