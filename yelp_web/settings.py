@@ -125,7 +125,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 CRONJOBS = [
-    ('*/1 * * * *', 'yelp_web.cron.my_scheduled_job', '>> /home/arnoldlara/SR/Talleres/Taller2/yelp_web/scheduled_job.log')
+    #('*/1 * * * *', 'yelp_web.cron.my_scheduled_job', '>> /home/arnoldlara/SR/Talleres/Taller2/yelp_web/scheduled_job.log')
+    ('0 * * * *', 'yelp_web.context-content-based-model.ccbm'),
+    ('10 * * * *', 'yelp_web.svd.svd'),
 ]
 
 STATICFILES_DIRS = (
