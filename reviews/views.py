@@ -23,5 +23,5 @@ class ReviewsSearchListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['query'] = self.query()
-        #print(context)
+        print(context)
         return context

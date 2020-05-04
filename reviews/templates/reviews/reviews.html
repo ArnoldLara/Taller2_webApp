@@ -15,6 +15,7 @@
 
   {% if user.is_authenticated %}
     <table class="table">
+    {% csrf_token %}
     <tr class="thead-dark">
       <th>Name</th>
       <th>Bussiness name</th>
