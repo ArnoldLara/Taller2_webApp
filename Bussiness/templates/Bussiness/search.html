@@ -13,20 +13,22 @@
   <hr>
   <p>Resultados para: {{ query }}</p>
   {% if user.is_authenticated %}
-    <h2>Recomendacion de lugares para tomar cafe</h2>
+    <h2>Recomendacion de lugares de bebidas de cafe y restaurantes</h2>
     <table class="table">
     <tr class="thead-dark">
-      <th>Username</th>
       <th>Bussiness Name</th>
       <th>City</th>
+      <th>Stars</th>
+      <th>Review count</th>
       <th>Address</th>
       <th>Rate recommendation</th>
     </tr>
     {%for recommendation in recommendation_list %}
          <tr>
-           <td>{{recommendation.user_name}}</td>
            <td>{{recommendation.bussines_name}}</td>
            <td>{{recommendation.city}}</td>
+           <td>{{recommendation.stars}}</td>
+           <td>{{recommendation.review_count}}</td>
            <td>{{recommendation.address}}</td>
            <td style="width:200px">
 

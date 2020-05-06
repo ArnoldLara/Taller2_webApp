@@ -16,9 +16,9 @@ class BussinessSearchListView(ListView):
         if self.request.user.is_anonymous:
             return Bussiness.objects.filter(city__icontains=self.query()).order_by('-stars')
         else:
-            Usuario=self.request.user
+            Usuario=self.request.user.last_name
             print(Usuario)
-            return Recommendation.objects.filter(city__icontains=self.query()).filter(user_name__icontains=Usuario)
+            return Recommendation.objects.filter(city__icontains=self.query()).filter(user_id__icontains=Usuario)
 
     def query(self):
         return self.request.GET.get('q')
