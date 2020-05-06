@@ -21,6 +21,7 @@
       <th>Bussiness name</th>
       <th>City</th>
       <th>Stars</th>
+      <th>Review</th>
       <th>Date</th>
     </tr>
     {%for review in reviews_list %}
@@ -29,6 +30,7 @@
            <td>{{review.bussiness_name}}</td>
            <td>{{review.city}}</td>
            <td>{{review.stars}}</td>
+           <td>{{review.text}}</td>
            <td>{{review.date}}</td>
 
          </tr>
